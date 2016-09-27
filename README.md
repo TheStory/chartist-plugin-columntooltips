@@ -51,4 +51,6 @@ var defaultPluginOptions = {
    * @defaultvalue
    */
   showPointsOnHover: true,
+
+}
 ```
