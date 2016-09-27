@@ -2,7 +2,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
     define([], function () {
-      return (root['Chartist.plugins.ctAxisTooltips'] = factory());
+      return (root['Chartist.plugins.ctColumnTooltips'] = factory());
     });
   } else if (typeof exports === 'object') {
     // Node. Does not work with strict CommonJS, but
@@ -10,7 +10,7 @@
     // like Node.
     module.exports = factory();
   } else {
-    root['Chartist.plugins.ctAxisTooltips'] = factory();
+    root['Chartist.plugins.ctColumnTooltips'] = factory();
   }
 }(this, function () {
 
@@ -77,11 +77,11 @@
 
   Chartist.plugins = Chartist.plugins || {};
 
-  Chartist.plugins.ctAxisTooltips = function(options) {
+  Chartist.plugins.ctColumnTooltips = function(options) {
 
     options = Chartist.extend({}, defaultOptions, options);
 
-    return function ctAxisTooltips(chart) {
+    return function ctColumnTooltips(chart) {
 
       /** @type {HTMLElement} Chart DOM object */
       var $chart = chart.container;
@@ -93,7 +93,7 @@
        * Alias to plugins objects container
        * @type {Object}
        */
-      chart.ctAxisTooltips = {};
+      chart.ctColumnTooltips = {};
 
       // Create tooltip is there isn't any
       if (!$tooltip) {
@@ -151,14 +151,14 @@
         var step = getStep(e);
 
         if (options.showPointsOnHover) {
-          chart.ctAxisTooltips.points = renderPoints(e, step);
+          chart.ctColumnTooltips.points = renderPoints(e, step);
         }
 
         if (options.showLine) {
-          chart.ctAxisTooltips.lines = renderLines(e, step);
+          chart.ctColumnTooltips.lines = renderLines(e, step);
         }
 
-        chart.ctAxisTooltips.columnSet = renderHoverColumns(e, step);
+        chart.ctColumnTooltips.columnSet = renderHoverColumns(e, step);
       }
 
       /**
@@ -185,8 +185,8 @@
           points.points.push(pointGroup);
         }
 
-        for (var i = 0; i < chart.ctAxisTooltips.oldPoints.length; i++) {
-          for (var j = 0; j < chart.ctAxisTooltips.oldPoints[i].length; j++) {
+        for (var i = 0; i < chart.ctColumnTooltips.oldPoints.length; i++) {
+          for (var j = 0; j < chart.ctColumnTooltips.oldPoints[i].length; j++) {
             renderPoint(points, i, j);
           }
         }
@@ -203,7 +203,7 @@
       function renderPoint(points, i, j) {
         var group = points.points[j];
         var point = group.elem('g').addClass(options.classNames.point);
-        var oldPoint = chart.ctAxisTooltips.oldPoints[i][j];
+        var oldPoint = chart.ctColumnTooltips.oldPoints[i][j];
         var positions = {
           x1: oldPoint._node.x1.baseVal.value,
           x2: oldPoint._node.x2.baseVal.value,
@@ -289,7 +289,7 @@
         $tooltip.style.left = posX + 'px';
         $tooltip.classList.add('visible');
 
-        if (posX > chart.ctAxisTooltips.columnSet.width() / 2) {
+        if (posX > chart.ctColumnTooltips.columnSet.width() / 2) {
           $tooltip.classList.add('switch-side');
         } else {
           $tooltip.classList.remove('switch-side');
@@ -301,7 +301,7 @@
        * @param {number} index Index of the colum where the line is located
        */
       function showLine(index) {
-        chart.ctAxisTooltips.lines.lines[index].attr({
+        chart.ctColumnTooltips.lines.lines[index].attr({
           'visible': true
         });
       }
@@ -311,7 +311,7 @@
        * @param {number} index Index of the colum where the line is located
        */
       function hideLine(index) {
-        chart.ctAxisTooltips.lines.lines[index].attr({
+        chart.ctColumnTooltips.lines.lines[index].attr({
           'visible': false
         });
       }
@@ -321,7 +321,7 @@
        * @param {number} index Index of the colum where the points are located
        */
       function showPoints(index) {
-        chart.ctAxisTooltips.points.points[index].attr({
+        chart.ctColumnTooltips.points.points[index].attr({
           'visible': true
         });
       }
@@ -331,7 +331,7 @@
        * @param {index} index Column index where the points are located
        */
       function hidePoints(index) {
-        chart.ctAxisTooltips.points.points[index].attr({
+        chart.ctColumnTooltips.points.points[index].attr({
           'visible': false
         });
       }
@@ -340,9 +340,9 @@
        * Prepairs empty array for points
        */
       function preparePointData() {
-        chart.ctAxisTooltips.oldPoints = [];
+        chart.ctColumnTooltips.oldPoints = [];
         for (var i = 0; i < chart.data.series.length; i++) {
-          chart.ctAxisTooltips.oldPoints[i] = [];
+          chart.ctColumnTooltips.oldPoints[i] = [];
         }
       }
 
@@ -385,7 +385,7 @@
 
           chart.on('draw', function(e) {
             if (e.type === 'point') {
-              chart.ctAxisTooltips.oldPoints[e.seriesIndex][e.index] = e.element;
+              chart.ctColumnTooltips.oldPoints[e.seriesIndex][e.index] = e.element;
             }
           });
         } else {
@@ -406,6 +406,6 @@
 
 }(window, document, Chartist));
 
-return Chartist.plugins.ctAxisTooltips;
+return Chartist.plugins.ctColumnTooltips;
 
 }));
