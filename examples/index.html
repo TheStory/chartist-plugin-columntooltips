@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chartist plugin: Axis Tooltips</title>
+    <link rel="stylesheet" href="../bower_components/chartist/dist/chartist.min.css">
+    <link rel="stylesheet" href="../dist/css/chartist-plugin-columntooltips.css">
+  </head>
+  <body>
+    <!-- Site content goes here !-->
+
+    <div id="chart" class="ct-chart"></div>
+
+    <script src="../bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="../dist/chartist-plugin-columntooltips.min.js"></script>
+    <script>
+      var data = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        series: [
+          [5, 2, 4, 2, 3],
+          [1, 2, 3, 6, 7]
+        ]
+      };
+
+      var pluginOptions = {
+        showLine: false, // Don't show the axis line
+      };
+
+      var options = {
+        height: '300px',
+        width: '750px',
+        plugins: [
+          Chartist.plugins.ctAxisTooltips(pluginOptions)
+        ],
+      };
+
+      var chart = new Chartist.Line('.ct-chart', data, options);
+    </script>
+  </body>
+</html>

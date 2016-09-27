@@ -1,0 +1,230 @@
+@tooltiop-color: #302c2f;
+.ct-lines {
+  .ct-line {
+    stroke: @tooltiop-color;
+    stroke-width: 1px;
+    opacity: 0;
+    &[visible=true] {
+      opacity: 0.8;
+    }
+  }
+}
+
+.ct-columns {
+  .ct-column {
+    stroke: black;
+    opacity: 0;
+    &:hover {
+      opacity: 0;
+    }
+  }
+}
+
+.ct-column-tooltip {
+  position: absolute;
+  top: 20%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.5s;
+  .ct-cloud {
+    transition: opacity 0.5s 0.5s;
+    position: absolute;
+    background-color: @tooltiop-color;
+    border-radius: 5px;
+    padding: 8px 12px;
+    color: #fff;
+    margin: 0 20px;
+    &::before {
+      content: "";
+      top: ~"calc(50% - 8px)";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8.5px 9px 8.5px 0;
+      border-color: transparent @tooltiop-color transparent transparent;
+      position: absolute;
+      right: 100%;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        white-space: nowrap;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 5px;
+          margin-right: 6px;
+        }
+        &:nth-child(1)::before {
+          background-color: #d70206;
+        }
+        &:nth-child(2)::before {
+          background-color: #f05b4f;
+        }
+        &:nth-child(3)::before {
+          background-color: #f4c63d;
+        }
+        &:nth-child(4)::before {
+          background-color: #d17905;
+        }
+        &:nth-child(5)::before {
+          background-color: #453d3f;
+        }
+        &:nth-child(6)::before {
+          background-color: #59922b;
+        }
+        &:nth-child(7)::before {
+          background-color: #0544d3;
+        }
+        &:nth-child(8)::before {
+          background-color: #6b0392;
+        }
+        &:nth-child(9)::before {
+          background-color: #f05b4f;
+        }
+        &:nth-child(10)::before {
+          background-color: #dda458;
+        }
+        &:nth-child(11)::before {
+          background-color: #eacf7d;
+        }
+        &:nth-child(12)::before {
+          background-color: #86797d;
+        }
+        &:nth-child(13)::before {
+          background-color: #b2c326;
+        }
+        &:nth-child(14)::before {
+          background-color: #6188e2;
+        }
+        &:nth-child(15)::before {
+          background-color: #a748ca;
+        }
+      }
+    }
+  }
+  &.visible {
+    opacity: 1;
+  }
+  &.switch-side {
+    .ct-cloud {
+      right: 100%;
+      &::before {
+        border-width: 8.5px 0 8.5px 9px;
+        border-color: transparent transparent transparent @tooltiop-color;
+        right: -9px;
+      }
+    }
+  }
+}
+
+.ct-column-point-groups {
+  .ct-column-point-group {
+    .ct-custom-point {
+      opacity: 0;
+      transition: all 0.5s;
+      .ct-custom-point-shadow {
+        opacity: .4;
+        stroke: white;
+        stroke-width: 12px;
+        transition: stroke-width 0.5s;
+        stroke-linecap: round;
+      }
+      .ct-custom-point-fill {
+        stroke-width: 7px;
+        transition: stroke-width 0.5s;
+        stroke-linecap: round;
+      }
+      &:nth-child(1) {
+        .ct-custom-point-fill {
+          stroke: #d70206;
+        }
+      }
+      &:nth-child(2) {
+        .ct-custom-point-fill {
+          stroke: #f05b4f;
+        }
+      }
+      &:nth-child(3) {
+        .ct-custom-point-fill {
+          stroke: #f4c63d;
+        }
+      }
+      &:nth-child(4) {
+        .ct-custom-point-fill {
+          stroke: #d17905;
+        }
+      }
+      &:nth-child(5) {
+        .ct-custom-point-fill {
+          stroke: #453d3f;
+        }
+      }
+      &:nth-child(6) {
+        .ct-custom-point-fill {
+          stroke: #59922b;
+        }
+      }
+      &:nth-child(7) {
+        .ct-custom-point-fill {
+          stroke: #0544d3;
+        }
+      }
+      &:nth-child(8) {
+        .ct-custom-point-fill {
+          stroke: #6b0392;
+        }
+      }
+      &:nth-child(9) {
+        .ct-custom-point-fill {
+          stroke: #f05b4f;
+        }
+      }
+      &:nth-child(10) {
+        .ct-custom-point-fill {
+          stroke: #dda458;
+        }
+      }
+      &:nth-child(11) {
+        .ct-custom-point-fill {
+          stroke: #eacf7d;
+        }
+      }
+      &:nth-child(12) {
+        .ct-custom-point-fill {
+          stroke: #86797d;
+        }
+      }
+      &:nth-child(13) {
+        .ct-custom-point-fill {
+          stroke: #b2c326;
+        }
+      }
+      &:nth-child(14) {
+        .ct-custom-point-fill {
+          stroke: #6188e2;
+        }
+      }
+      &:nth-child(15) {
+        .ct-custom-point-fill {
+          stroke: #a748ca;
+        }
+      }
+    }
+    &[visible=true] {
+      .ct-custom-point {
+        opacity: 1;
+        .ct-custom-point-shadow {
+          stroke-width: 24px;
+        }
+        .ct-custom-point-fill {
+          stroke-width: 14px;
+        }
+      }
+    }
+  }
+}

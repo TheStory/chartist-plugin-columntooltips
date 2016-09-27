@@ -1,0 +1,13 @@
+# Grunt Commands
+# ==============
+#
+# Use `grunt` in the root directory to select and run a specific task.
+
+default:
+  - 'build'
+
+# create the plugin
+build:
+  - 'umd'
+  - 'uglify:dist'
+  - 'less:dist'

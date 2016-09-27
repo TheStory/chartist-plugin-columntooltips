@@ -1,0 +1,18 @@
+{
+  "name": "chartist-plugin-columntooltips",
+  "version": "1.0.0",
+  "main": [
+    "./dist/chartist-plugin-columntooltips.min.js"
+  ],
+  "dependencies": {
+    "chartist": "~0.9.0"
+  },
+  "ignore": [
+    ".*",
+    "Gruntfile.js",
+    "package.json",
+    "node_modules",
+    "src",
+    "test"
+  ]
+}
