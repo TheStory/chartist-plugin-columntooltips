@@ -44,13 +44,13 @@
       /** Hover column group */
       columnGroup: 'ct-columns',
 
-      /** Hover column */
+      /** Hover column point */
       point: 'ct-custom-point',
 
-      /** Hover column group */
+      /** Hover column point group */
       pointGroup: 'ct-column-point-group',
 
-      /** Hover column groups */
+      /** Hover column point groups */
       pointGroups: 'ct-column-point-groups',
 
       /** Tooltip */
