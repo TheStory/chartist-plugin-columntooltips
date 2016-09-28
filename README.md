@@ -1,6 +1,6 @@
 # Column tooltips plugin for Chartist.js
 
-This plugin gives ability to display column tooltips in Chartist.js charts.
+This plugin gives ability to display column tooltips in [Chartist.js](https://github.com/gionkunz/chartist-js) line charts.
 
 ## Download 
 The best way to install the plugin is via Bower:
