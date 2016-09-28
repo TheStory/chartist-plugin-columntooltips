@@ -2,6 +2,12 @@
 
 This plugin gives ability to display column tooltips in Chartist.js charts.
 
+## Download 
+The best way to install the plugin is via Bower:
+```
+bower install chartist-plugin-columntooltips --save
+```
+
 ## Available options and their defaults
 
 ```javascript
