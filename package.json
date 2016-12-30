@@ -13,7 +13,8 @@
   "keywords": [
     "chartist",
     "plugin",
-    "chart"
+    "column",
+    "tooltips"
   ],
   "files": [
     "dist",
