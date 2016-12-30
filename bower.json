@@ -4,6 +4,12 @@
   "main": [
     "./dist/chartist-plugin-columntooltips.min.js"
   ],
+  "keywords": [
+    "chartist",
+    "plugin",
+    "column",
+    "tooltips"
+  ],
   "dependencies": {
     "chartist": "~0.9.0"
   },
